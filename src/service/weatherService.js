@@ -1,6 +1,9 @@
 import { getWeatherLocation } from "../api/weather";
 
-function getWeatherData(city){
-    const response = getWeatherData(city);
-    const temperatureCelsius = response.current
+async function getWeatherData(city){
+    const response = await getWeatherLocation(city);
+    
+    console.log('weatherService.js celsius temp: '+response.current.feelslike_c);
 }
+
+export {getWeatherData}
