@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import getWeatherData from './service/weatherService';
 import './front/css/style.css';
 
@@ -19,4 +20,4 @@ async function getResponseFromAPI() {
   console.log(response);
 }
 
-//TODO add a header and a footer.
+// TODO add a header and a footer.
