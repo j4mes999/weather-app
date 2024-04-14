@@ -18,3 +18,5 @@ async function getResponseFromAPI() {
   console.log('index.js outside of the then: ');
   console.log(response);
 }
+
+//TODO add a header and a footer.
