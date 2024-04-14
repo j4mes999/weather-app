@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button{
+    background: blue;
+    border-radius: 12px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 10px 15px;
+    text-align: center;
+    transition: 200ms;
+    width: 100px;
+    box-sizing: border-box;
+    border: 0;
+    font-size: 16px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin: 10px;
+    transition: all 0.5s;
+}
+
+
+.mainContainer{
+    background-image: url('../media/nightBackground.png');
+    background-origin: border-box;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: grey;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
