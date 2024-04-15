@@ -20,4 +20,4 @@ async function getResponseFromAPI() {
   console.log(response);
 }
 
-// TODO add a header and a footer.
+//Finnishing footer and add style to main UI
