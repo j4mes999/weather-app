@@ -20,4 +20,4 @@ async function getResponseFromAPI() {
   console.log(response);
 }
 
-//Finnishing footer and add style to main UI
+//TODO add weather card showing the details

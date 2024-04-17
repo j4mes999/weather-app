@@ -23,9 +23,9 @@
 }
 
 button {
-    background: blue;
+    background: #040404;
     border-radius: 12px;
-    color: white;
+    color: rgb(255, 255, 255);
     cursor: pointer;
     font-weight: bold;
     padding: 10px 15px;
@@ -44,7 +44,7 @@ button {
 
 
 .mainContainer {
-    background-image: url('../media/nightBackground.png');
+    background-image: url('../media/dayBackground.png');
     background-origin: border-box;
     background-repeat: no-repeat;
     background-size: cover;
@@ -52,7 +52,7 @@ button {
     background-position: center;
     display: flex;
     justify-content: center;
-    min-height: 100vh;
+    min-height: 90vh;
 }
 
 .githubIcon {
@@ -62,7 +62,7 @@ button {
 }
 
 .textFooter {
-    font-size: 1.5rem;;
+    font-size: 1rem;;
     color: var(--main-font-color);
     font-family: var(--main-font-family-regular);
 }
@@ -74,6 +74,29 @@ button {
     flex-direction: row;
     padding: 1rem;
     background-color: var(--background-body);
-    font-family: sans-serif;
     font-style: italic;
+    min-height: 10vh;
+}
+
+.grid{
+    margin-top: 2rem;
+    display: grid;
+    gap: 1rem;
+    justify-items: center;
+    font-family: var(--main-font-family-regular);
+}
+
+.cityLabel{
+    font-weight: bolder;
+    color: white;
+    font-size: 1.6rem;
+}
+
+input{
+    padding: 0.5rem 1rem;
+    outline: none;
+    border: 2.3px solid #E5E7EB;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    border-radius: 0.5rem;
 }
