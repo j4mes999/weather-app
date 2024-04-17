@@ -20,4 +20,5 @@ async function getResponseFromAPI() {
   console.log(response);
 }
 
-//TODO add weather card showing the details
+//TODO Improve styling on weather card.
+//TODO ADD Error handling in API request
