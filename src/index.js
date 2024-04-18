@@ -20,5 +20,5 @@ async function getResponseFromAPI() {
   console.log(response);
 }
 
-//TODO Improve styling on weather card.
+//TODO Get data from the backend and show it in the UI
 //TODO ADD Error handling in API request
