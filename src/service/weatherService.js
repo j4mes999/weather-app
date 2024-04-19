@@ -2,6 +2,7 @@ import getWeatherLocation from '../api/weather';
 
 async function getWeatherData(city) {
   const weatherData = await getWeatherLocation(city);
+  
   const response = {
     city: weatherData.location.name,
     country: weatherData.location.country,
