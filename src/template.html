@@ -8,11 +8,12 @@
 </head>
 
 <body>
-    <div class="mainContainer">
+    <div class="mainContainer" novalidate>
         <form action="">
             <div class="grid">
                 <label class="cityLabel" for="city">Enter a City name</label>
-                <input type="text" name="city" id="city" placeholder="New York">
+                <input type="text" name="city" id="city" placeholder="New York"  pattern="^[a-zA-Z]{2,}" >
+                <span class="error"></span>
                 <button type="submit" id="submit">Send</button>
             </div>
         </form>

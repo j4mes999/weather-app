@@ -11,12 +11,21 @@ function buildErrorResponse(error) {
 }
 
 async function getWeatherLocation(city) {
+  let weatherData;
   try {
     const response = await fetch(`${WEATHER_API_URL}?key=${API_KEY}&q=${city}`);
-    const weatherData = await response.json();
-    console.log(`weather.js data from api:${weatherData}`);
+    if (!response.ok) {
+      throw new Error(`There was an error invoking the API: ${response.statusText}`);
+    } else {
+      weatherData = await response.json();
+      weatherData.code = 200;
+    }
+
+    // console.log(`weather.js data from api:${weatherData}`);
+    // console.log(response.statusText);
     return weatherData;
   } catch (error) {
+    console.log('weather.js inside catch!');
     return buildErrorResponse(error);
   }
 }
