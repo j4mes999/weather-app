@@ -3,9 +3,7 @@ import getWeatherLocation from '../api/weather';
 async function getWeatherData(city) {
   const weatherData = await getWeatherLocation(city);
 
-  console.log('weatherService.js http headers', weatherData.code);
   if (weatherData.code === 200) {
-    console.log('weatherService.js inside the 200!');
     const response = {
       code: weatherData.code,
       city: weatherData.location.name,

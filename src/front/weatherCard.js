@@ -3,8 +3,14 @@ import { changeUnits } from './unitsHandler';
 
 const city = document.getElementById('city');
 
-async function showDataInWeatherCard() {
-  const response = await getWeatherData(city.value);
+async function showDataInWeatherCard(useDefaultCity) {
+  let cityName = '';
+  if (useDefaultCity === true) {
+    cityName = 'bogota';
+  } else {
+    cityName = city.value;
+  }
+  const response = await getWeatherData(cityName);
   const cityCountryFields = document.querySelectorAll('.info-card h2');
 
   if (response.code === 200) {

@@ -1,11 +1,13 @@
 const currentTemperatureValues = [];
 
 function toFarenheit(cValue) {
-  return ((9 / 5) * cValue) + 32;
+  const farenheitTemp = ((9 / 5) * cValue) + 32;
+  return Math.round(farenheitTemp * 10) / 10;
 }
 
 function toCelsius(fValue) {
-  return (fValue - 32) * (5 / 9);
+  const celsiusTemp = (fValue - 32) * (5 / 9);
+  return Math.round(celsiusTemp * 10) / 10;
 }
 
 function changeUnits(temperature, feelsLike) {
