@@ -22,15 +22,19 @@ function changeUnits(temperature, feelsLike) {
 function drawFarenheitResult() {
   const fTemperature = toFarenheit(currentTemperatureValues[0]);
   const fFeelsLike = toFarenheit(currentTemperatureValues[1]);
+  const unitLabel = document.getElementsByClassName('deg-unit');
 
   changeUnits(fTemperature, fFeelsLike);
+  unitLabel[0].textContent = 'F';
 }
 
 function drawCelsiusResult() {
   const cTemperature = toCelsius(currentTemperatureValues[0]);
   const cFeelsLike = toCelsius(currentTemperatureValues[1]);
+  const unitLabel = document.getElementsByClassName('deg-unit');
 
   changeUnits(cTemperature, cFeelsLike);
+  unitLabel[0].textContent = 'C';
 }
 
 export { changeUnits, drawFarenheitResult, drawCelsiusResult };

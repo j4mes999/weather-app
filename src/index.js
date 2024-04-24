@@ -1,17 +1,23 @@
 import './front/css/style.css';
-import { drawCelsiusResult, drawFarenheitResult } from './front/unitsHandler';
 import showDataInWeatherCard from './front/weatherCard';
+import { drawCelsiusResult, drawFarenheitResult } from './front/unitsHandler';
+
+showDataInWeatherCard(true);
 
 const form = document.querySelector('form');
 const inputField = document.getElementById('city');
 const errorMessage = document.querySelector('#city + span.error');
 const farenheitToogle = document.getElementById('checkbox-f');
 
-showDataInWeatherCard(true);
-
 function showErrorMessage(event) {
   errorMessage.textContent = 'City name has to be only characteres from a to z';
   event.preventDefault();
+}
+
+function resetValues() {
+  farenheitToogle.checked = false;
+  const unitLabel = document.getElementsByClassName('deg-unit');
+  unitLabel[0].textContent = 'C';
 }
 
 inputField.addEventListener('input', (event) => {
@@ -25,6 +31,7 @@ inputField.addEventListener('input', (event) => {
 form.addEventListener('submit', (event) => {
   if (inputField.validity.valid) {
     showDataInWeatherCard();
+    resetValues();
     event.preventDefault();
   } else {
     showErrorMessage(event);
@@ -35,6 +42,7 @@ inputField.addEventListener('keypress', (event) => {
   if (event.key === 'Enter') {
     if (inputField.validity.valid) {
       showDataInWeatherCard();
+      resetValues();
     } else {
       showErrorMessage(event);
     }
@@ -49,6 +57,4 @@ farenheitToogle.addEventListener('change', () => {
   }
 });
 
-// TODO decrease the size of the circle in toogle check .slider:before
 // TODO change background and styling when is day or nigth
-// TODO organize code in index.js should be only a few lines of code.
