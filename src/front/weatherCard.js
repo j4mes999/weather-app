@@ -1,16 +1,44 @@
 import getWeatherData from '../service/weatherService';
 import { showUnits } from './unitsHandler';
 
-const city = document.getElementById('city');
 const DEFAULT_CITY = 'bogota';
+const LIGHT_MODE_CLASS = 'light-mode';
+const DARK_MODE_CLASS = 'dark-mode';
+const DAY_BACKGROUND_CLASS = 'day-background';
+const NIGHT_BACKGROUND_CLASS = 'night-background';
 
-function toogleDarkModeIfNecessary(isDay) {
-  console.log(`weatherCard.js isDay: ${isDay}`);
-  const cardBody = document.getElementsByClassName('card-body')[0];
+const city = document.getElementById('city');
+
+function toggleClasses(elements, classList) {
+  classList.forEach((item) => {
+    const { element, add, remove } = item;
+    elements[element].classList.remove(remove);
+    elements[element].classList.add(add);
+  });
+}
+
+function switchDarkModeIfNecessary(isDay) {
+  const elements = {
+    cardBody: document.querySelector('.card-body'),
+    mainContainer: document.querySelector('.mainContainer'),
+    cardHeader: document.querySelector('.card-header'),
+    degreeLabel: document.querySelector('.toogle-wrap'),
+  };
+
   if (!isDay) {
-    cardBody.classList.add('dark-mode');
+    toggleClasses(elements, [
+      { element: 'cardBody', add: DARK_MODE_CLASS, remove: LIGHT_MODE_CLASS },
+      { element: 'mainContainer', add: NIGHT_BACKGROUND_CLASS, remove: DAY_BACKGROUND_CLASS },
+      { element: 'cardHeader', add: DARK_MODE_CLASS, remove: LIGHT_MODE_CLASS },
+      { element: 'degreeLabel', add: DARK_MODE_CLASS, remove: LIGHT_MODE_CLASS },
+    ]);
   } else {
-    cardBody.classList.add('light-mode');
+    toggleClasses(elements, [
+      { element: 'cardBody', add: LIGHT_MODE_CLASS, remove: DARK_MODE_CLASS },
+      { element: 'mainContainer', add: DAY_BACKGROUND_CLASS, remove: NIGHT_BACKGROUND_CLASS },
+      { element: 'cardHeader', add: LIGHT_MODE_CLASS, remove: DARK_MODE_CLASS },
+      { element: 'degreeLabel', add: LIGHT_MODE_CLASS, remove: DARK_MODE_CLASS },
+    ]);
   }
 }
 
@@ -29,7 +57,7 @@ async function showDataInWeatherCard(useDefaultCity) {
     cityCountryFields[1].textContent = response.country;
 
     showUnits(response.temp_c, response.feelsLike_c);
-    toogleDarkModeIfNecessary(response.is_day);
+    switchDarkModeIfNecessary(response.is_day);
   } else {
     cityCountryFields[0].textContent = 'Sorry, there was a problem retrieving the weather data';
   }

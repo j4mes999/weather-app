@@ -42,7 +42,7 @@ button {
 
 
 .mainContainer {
-    background-image: url('../media/nightBackground.png');
+    /* background-image: url('../media/nightBackground.png'); */
     background-origin: border-box;
     background-repeat: no-repeat;
     background-size: cover;
@@ -199,6 +199,14 @@ input:not(:focus):invalid {
 
 .light-mode{
     color: black;
+}
+
+.day-background{
+    background-image: url('../media/dayBackground.png');
+}
+
+.night-background {
+    background-image: url('../media/nightBackground.png');
 }
 
   /* Toogle button: */

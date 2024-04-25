@@ -41,6 +41,7 @@ function attachEventListeners() {
       if (inputField.validity.valid) {
         showDataInWeatherCard();
         resetValues();
+        event.preventDefault();
       } else {
         showErrorMessage(event);
       }

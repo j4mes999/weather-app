@@ -21,11 +21,8 @@ async function getWeatherLocation(city) {
       weatherData.code = 200;
     }
 
-    // console.log(`weather.js data from api:${weatherData}`);
-    // console.log(response.statusText);
     return weatherData;
   } catch (error) {
-    console.log('weather.js inside catch!');
     return buildErrorResponse(error);
   }
 }

@@ -4,5 +4,3 @@ import showDataInWeatherCard from './front/weatherCard';
 
 showDataInWeatherCard(true);
 attachEventListeners();
-
-// TODO Fix toogle dark mode.
