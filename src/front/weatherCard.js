@@ -1,12 +1,23 @@
 import getWeatherData from '../service/weatherService';
-import { changeUnits } from './unitsHandler';
+import { showUnits } from './unitsHandler';
 
 const city = document.getElementById('city');
+const DEFAULT_CITY = 'bogota';
+
+function toogleDarkModeIfNecessary(isDay) {
+  console.log(`weatherCard.js isDay: ${isDay}`);
+  const cardBody = document.getElementsByClassName('card-body')[0];
+  if (!isDay) {
+    cardBody.classList.add('dark-mode');
+  } else {
+    cardBody.classList.add('light-mode');
+  }
+}
 
 async function showDataInWeatherCard(useDefaultCity) {
   let cityName = '';
   if (useDefaultCity === true) {
-    cityName = 'bogota';
+    cityName = DEFAULT_CITY;
   } else {
     cityName = city.value;
   }
@@ -14,17 +25,13 @@ async function showDataInWeatherCard(useDefaultCity) {
   const cityCountryFields = document.querySelectorAll('.info-card h2');
 
   if (response.code === 200) {
-    cityCountryFields[0].innerHTML = `${response.city}, `;
-    cityCountryFields[1].innerHTML = response.country;
+    cityCountryFields[0].textContent = `${response.city}, `;
+    cityCountryFields[1].textContent = response.country;
 
-    changeUnits(response.temp_c, response.feelsLike_c);
-    // const temperature = document.querySelector('.temp-number');
-    // temperature.innerHTML = response.temp_c;
-    // const feelsLike = document.querySelector('.feels-like > .number');
-    // feelsLike.innerHTML = response.feelsLike_c;
+    showUnits(response.temp_c, response.feelsLike_c);
+    toogleDarkModeIfNecessary(response.is_day);
   } else {
-    cityCountryFields[0].innerHTML = 'Sorry, there was a problem retrieving the weather data';
-    // cityCountryFields[0].sty
+    cityCountryFields[0].textContent = 'Sorry, there was a problem retrieving the weather data';
   }
 }
 

@@ -10,7 +10,7 @@ function toCelsius(fValue) {
   return Math.round(celsiusTemp * 10) / 10;
 }
 
-function changeUnits(temperature, feelsLike) {
+function showUnits(temperature, feelsLike) {
   const temperatureField = document.querySelector('.temp-number');
   temperatureField.textContent = temperature;
   const feelsLikeField = document.querySelector('.feels-like > .number');
@@ -24,7 +24,7 @@ function drawFarenheitResult() {
   const fFeelsLike = toFarenheit(currentTemperatureValues[1]);
   const unitLabel = document.getElementsByClassName('deg-unit');
 
-  changeUnits(fTemperature, fFeelsLike);
+  showUnits(fTemperature, fFeelsLike);
   unitLabel[0].textContent = 'F';
 }
 
@@ -33,8 +33,8 @@ function drawCelsiusResult() {
   const cFeelsLike = toCelsius(currentTemperatureValues[1]);
   const unitLabel = document.getElementsByClassName('deg-unit');
 
-  changeUnits(cTemperature, cFeelsLike);
+  showUnits(cTemperature, cFeelsLike);
   unitLabel[0].textContent = 'C';
 }
 
-export { changeUnits, drawFarenheitResult, drawCelsiusResult };
+export { showUnits, drawFarenheitResult, drawCelsiusResult };

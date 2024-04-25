@@ -42,7 +42,7 @@ button {
 
 
 .mainContainer {
-    background-image: url('../media/dayBackground.png');
+    background-image: url('../media/nightBackground.png');
     background-origin: border-box;
     background-repeat: no-repeat;
     background-size: cover;
@@ -168,7 +168,8 @@ input:focus:invalid{
     outline: none;
 }
 
-input:not(:placeholder-shown):not(:focus):invalid {
+input:not(:placeholder-shown),
+input:not(:focus):invalid {
     border: 1px solid #333;
     margin: 0;
     background-color: rgb(251, 251, 251);
@@ -190,6 +191,14 @@ input:not(:placeholder-shown):not(:focus):invalid {
 
 .toogle-wrap > span{
     font-size: 1.1rem;
+}
+
+.dark-mode{
+    color: white;
+}
+
+.light-mode{
+    color: black;
 }
 
   /* Toogle button: */
